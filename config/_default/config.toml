@@ -1,5 +1,5 @@
 # Change baseurl before deploy
-baseurl = "https://trenconnects.us"
+baseurl = "https://trenconnectsus.github.io/tren/"
 languageCode = "en-us"
 title = "TREN"
 
