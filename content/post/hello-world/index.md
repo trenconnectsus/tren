@@ -2,7 +2,7 @@
 title: TREN
 description: Tennessee Research and Education Network
 slug: tren
-date: 2024-02-24 00:00:00+0000
+date: 2025-02-24 00:00:00+0000
 image: cover.jpg
 categories:
     - tren
