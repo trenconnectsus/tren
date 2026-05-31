@@ -1,8 +1,6 @@
 baseURL: "https://trenconnectsus.github.io/tren/"
 title: "TREN — Tennessee Research & Education Network"
-languageCode: "en-us"
-theme: ""
-
+defaultContentLanguage: "en"
 paginate: 10
 
 params:
