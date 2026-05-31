@@ -6,19 +6,17 @@ paginate: 10
 params:
   description: "Building the statewide 100G research backbone for Tennessee's institutions of higher education."
   nsf_award: "NSF CC* Award #2430341"
-  contact_email: "info@trenconnects.us"   # ← confirm this address
+  contact_email: "info@trenconnects.us"
 
   nav:
     - name: "About"
       url: "/about/"
-    - name: "Community"
-      url: "/community/"
     - name: "Events"
       url: "/events/"
     - name: "News"
       url: "/news/"
-    - name: "Publications"
-      url: "/publications/"
+    - name: "Team"
+      url: "/team/"
     - name: "Contact"
       url: "/contact/"
 

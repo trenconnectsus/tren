@@ -241,3 +241,105 @@ body {
   .inst-grid { grid-template-columns: repeat(2, 1fr); }
   .footer-inner { flex-direction: column; align-items: flex-start; }
 }
+
+/* ─── Network map section ────────────────────────────────── */
+.map-section {
+  background: #fff;
+  border-top: 0.5px solid var(--border);
+  border-bottom: 0.5px solid var(--border);
+  padding: 2.5rem 2rem;
+}
+.map-inner { max-width: var(--max-width); margin: 0 auto; }
+.map-header {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.75rem;
+}
+.map-title { font-size: 20px; font-weight: 600; color: var(--navy); }
+.map-legend { display: flex; gap: 16px; align-items: center; }
+.legend-item {
+  display: flex; align-items: center;
+  gap: 6px; font-size: 11px; color: var(--text-muted);
+}
+.legend-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  display: inline-block;
+}
+.legend-planned .legend-dot  { background: var(--orange); opacity: 0.7; }
+.legend-active .legend-dot   { background: var(--navy); }
+.legend-peer .legend-dot     { background: #639922; }
+.map-wrap {
+  background: var(--bg-alt);
+  border: 0.5px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  overflow: hidden;
+}
+.map-wrap svg { width: 100%; height: auto; display: block; }
+
+/* ─── Partners section ───────────────────────────────────── */
+.partners-section {
+  background: var(--bg-alt);
+  border-top: 0.5px solid var(--border);
+  padding: 3rem 2rem;
+}
+.partners-inner { max-width: var(--max-width); margin: 0 auto; }
+.partners-title {
+  font-size: 24px; font-weight: 600; color: var(--navy);
+  text-align: center; margin-bottom: 0.5rem;
+}
+.partners-sub {
+  font-size: 14px; color: var(--text-muted); text-align: center;
+  max-width: 520px; margin: 0 auto 2rem; line-height: 1.6;
+}
+
+/* Primary partners — larger */
+.partners-primary {
+  display: flex; justify-content: center;
+  gap: 16px; flex-wrap: wrap; margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 0.5px solid var(--border);
+}
+.partner-card {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 8px;
+  background: #fff; border: 0.5px solid var(--border);
+  border-radius: var(--radius); padding: 1rem 1.25rem;
+  text-decoration: none; transition: border-color .15s;
+  min-width: 140px;
+}
+.partner-card:hover { border-color: var(--orange); }
+.partner-card img { height: 48px; width: auto; object-fit: contain; }
+.partner-card--primary { min-width: 160px; }
+.partner-card--primary img { height: 56px; }
+.partner-name {
+  font-size: 11px; color: var(--text-muted);
+  text-align: center; line-height: 1.3;
+}
+
+/* Placeholder when no logo file exists yet */
+.partner-placeholder {
+  height: 48px; display: flex; align-items: center;
+  justify-content: center;
+  font-size: 16px; font-weight: 700;
+  color: var(--navy); letter-spacing: 0.03em;
+}
+.partner-placeholder--sm {
+  height: 36px; font-size: 14px;
+}
+
+/* Secondary partners — smaller grid */
+.partners-secondary {
+  display: flex; justify-content: center;
+  gap: 12px; flex-wrap: wrap;
+}
+.partners-secondary .partner-card {
+  min-width: 110px; padding: 0.75rem 1rem;
+}
+.partners-secondary .partner-placeholder { height: 36px; font-size: 13px; }
+
+@media (max-width: 768px) {
+  .map-header { flex-direction: column; align-items: flex-start; }
+  .partners-primary, .partners-secondary { gap: 10px; }
+  .partner-card { min-width: 100px; }
+}

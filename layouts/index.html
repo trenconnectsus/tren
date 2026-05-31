@@ -1,11 +1,6 @@
 {{ define "main" }}
 
-<!-- Hero -->
-<!-- HERO IMAGE ─────────────────────────────────────────────────────────────
-     Replace: static/images/hero.jpg
-     Size:    1400 x 600px minimum, landscape
-     Tip:     Tennessee campus, Nashville skyline, or fiber infrastructure
-     ──────────────────────────────────────────────────────────────────────── -->
+<!-- ── Hero ──────────────────────────────────────────────────────────────── -->
 <section class="hero">
   <img src="{{ "images/hero.jpg" | relURL }}" alt="Tennessee Research and Education Network" class="hero-img">
   <div class="hero-overlay"></div>
@@ -20,7 +15,7 @@
   </div>
 </section>
 
-<!-- Stats -->
+<!-- ── Stats ──────────────────────────────────────────────────────────────── -->
 <div class="stats-bar">
   {{ range .Site.Data.stats }}
   <div class="stat">
@@ -30,7 +25,82 @@
   {{ end }}
 </div>
 
-<!-- Latest news -->
+<!-- ── Network status map ─────────────────────────────────────────────────── -->
+<!-- MAP IMAGE: replace static/images/network-map.svg with your real map -->
+<section class="map-section">
+  <div class="map-inner">
+    <div class="map-header">
+      <div>
+        <div class="eyebrow">Infrastructure</div>
+        <h2 class="map-title">TREN Network</h2>
+      </div>
+      <div class="map-legend">
+        <span class="legend-item legend-planned"><span class="legend-dot"></span>Planned</span>
+        <span class="legend-item legend-active"><span class="legend-dot"></span>Active</span>
+        <span class="legend-item legend-peer"><span class="legend-dot"></span>Peering</span>
+      </div>
+    </div>
+    <div class="map-wrap">
+      <!-- Placeholder Tennessee network map — replace with real SVG or interactive map -->
+      <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="TREN network map showing planned connections across Tennessee">
+        <!-- Tennessee state silhouette (approximate) -->
+        <path d="M60,80 L740,60 L745,100 L700,110 L690,140 L680,160 L600,165 L560,180 L500,175 L460,200 L400,210 L340,205 L280,220 L220,230 L160,240 L100,245 L60,240 Z"
+          fill="#F0F0F0" stroke="#ccc" stroke-width="1.5"/>
+
+        <!-- Peering lines — Internet2 / ORNL -->
+        <line x1="620" y1="148" x2="760" y2="90" stroke="#ccc" stroke-width="1.5" stroke-dasharray="6,4"/>
+        <line x1="620" y1="148" x2="760" y2="170" stroke="#ccc" stroke-width="1.5" stroke-dasharray="6,4"/>
+
+        <!-- Backbone connections (planned) -->
+        <line x1="210" y1="178" x2="370" y2="165" stroke="#E87B1E" stroke-width="2.5" stroke-dasharray="8,4" opacity="0.7"/>
+        <line x1="370" y1="165" x2="450" y2="158" stroke="#E87B1E" stroke-width="2.5" stroke-dasharray="8,4" opacity="0.7"/>
+        <line x1="450" y1="158" x2="620" y2="148" stroke="#E87B1E" stroke-width="2.5" stroke-dasharray="8,4" opacity="0.7"/>
+        <line x1="210" y1="178" x2="620" y2="148" stroke="#162040" stroke-width="1" stroke-dasharray="4,6" opacity="0.2"/>
+
+        <!-- Node: TSU Nashville -->
+        <circle cx="370" cy="165" r="10" fill="#162040" opacity="0.9"/>
+        <circle cx="370" cy="165" r="17" fill="#162040" opacity="0.1"/>
+        <text x="370" y="195" text-anchor="middle" font-size="11" font-weight="600" fill="#162040">TSU</text>
+        <text x="370" y="208" text-anchor="middle" font-size="9" fill="#5a5a5a">Nashville</text>
+
+        <!-- Node: MTSU Murfreesboro -->
+        <circle cx="450" cy="158" r="10" fill="#162040" opacity="0.9"/>
+        <circle cx="450" cy="158" r="17" fill="#162040" opacity="0.1"/>
+        <text x="450" y="188" text-anchor="middle" font-size="11" font-weight="600" fill="#162040">MTSU</text>
+        <text x="450" y="201" text-anchor="middle" font-size="9" fill="#5a5a5a">Murfreesboro</text>
+
+        <!-- Node: TTU Cookeville -->
+        <circle cx="560" cy="145" r="10" fill="#162040" opacity="0.9"/>
+        <circle cx="560" cy="145" r="17" fill="#162040" opacity="0.1"/>
+        <text x="560" y="175" text-anchor="middle" font-size="11" font-weight="600" fill="#162040">TTU</text>
+        <text x="560" y="188" text-anchor="middle" font-size="9" fill="#5a5a5a">Cookeville</text>
+
+        <!-- Node: UTC Chattanooga -->
+        <circle cx="620" cy="148" r="10" fill="#162040" opacity="0.9"/>
+        <circle cx="620" cy="148" r="17" fill="#162040" opacity="0.1"/>
+        <text x="620" y="178" text-anchor="middle" font-size="11" font-weight="600" fill="#162040">UTC</text>
+        <text x="620" y="191" text-anchor="middle" font-size="9" fill="#5a5a5a">Chattanooga</text>
+
+        <!-- Peering nodes -->
+        <circle cx="760" cy="90" r="7" fill="#639922" opacity="0.8"/>
+        <text x="760" y="78" text-anchor="middle" font-size="9" fill="#27500A" font-weight="600">Internet2</text>
+
+        <circle cx="760" cy="170" r="7" fill="#639922" opacity="0.8"/>
+        <text x="760" y="190" text-anchor="middle" font-size="9" fill="#27500A" font-weight="600">ORNL</text>
+
+        <!-- West TN stub node -->
+        <circle cx="210" cy="178" r="7" fill="#E87B1E" opacity="0.5" stroke="#E87B1E" stroke-width="1.5" stroke-dasharray="3,2"/>
+        <text x="210" y="198" text-anchor="middle" font-size="9" fill="#5a5a5a">West TN</text>
+        <text x="210" y="209" text-anchor="middle" font-size="8" fill="#999">(future)</text>
+
+        <!-- Placeholder watermark -->
+        <text x="400" y="255" text-anchor="middle" font-size="10" fill="#bbb" font-style="italic">Placeholder — replace with live network map</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ── News ───────────────────────────────────────────────────────────────── -->
 <section class="home-section">
   <div class="home-section-inner">
     <div class="section-header">
@@ -40,13 +110,6 @@
       </div>
       <a href="{{ "/news/" | relURL }}" class="see-all">See all →</a>
     </div>
-    <!-- NEWS CARD IMAGES ────────────────────────────────────────────────────
-         Place image inside the news item's folder:
-           content/news/[item-name]/[image-name.jpg]
-         Reference it in that item's index.md frontmatter:
-           image: image-name.jpg
-         Size: 800 x 500px minimum, landscape
-         ──────────────────────────────────────────────────────────────────── -->
     <div class="news-grid">
       {{ range first 3 (where .Site.RegularPages "Section" "news").ByDate.Reverse }}
       <a href="{{ .RelPermalink }}" class="news-card">
@@ -66,7 +129,7 @@
   </div>
 </section>
 
-<!-- Upcoming events -->
+<!-- ── Events ─────────────────────────────────────────────────────────────── -->
 <section class="home-section home-section--alt">
   <div class="home-section-inner">
     <div class="section-header">
@@ -95,19 +158,50 @@
   </div>
 </section>
 
-<!-- Institutions -->
+<!-- ── Partners ───────────────────────────────────────────────────────────── -->
+<section class="partners-section">
+  <div class="partners-inner">
+    <div class="eyebrow" style="text-align:center;margin-bottom:0.5rem">Network</div>
+    <h2 class="partners-title">Partners &amp; collaborators</h2>
+    <p class="partners-sub">TREN is made possible through collaboration with national research organizations, state agencies, and peer networks.</p>
+
+    <!-- Primary partners -->
+    <!-- PARTNER LOGOS: place files in static/images/partners/
+         Naming: nsf-logo.png, internet2-logo.png, ornl-logo.png etc.
+         Size: 180x70px, transparent PNG preferred -->
+    <div class="partners-primary">
+      {{ range .Site.Data.partners.primary }}
+      <a href="{{ .url }}" class="partner-card partner-card--primary" target="_blank" rel="noopener">
+        {{ if .logo }}
+        <img src="{{ (printf "images/partners/%s" .logo) | relURL }}" alt="{{ .name }}">
+        {{ else }}
+        <span class="partner-placeholder">{{ .abbr }}</span>
+        {{ end }}
+        <span class="partner-name">{{ .name }}</span>
+      </a>
+      {{ end }}
+    </div>
+
+    <!-- Secondary partners -->
+    <div class="partners-secondary">
+      {{ range .Site.Data.partners.secondary }}
+      <a href="{{ .url }}" class="partner-card" target="_blank" rel="noopener">
+        {{ if .logo }}
+        <img src="{{ (printf "images/partners/%s" .logo) | relURL }}" alt="{{ .name }}">
+        {{ else }}
+        <span class="partner-placeholder partner-placeholder--sm">{{ .abbr }}</span>
+        {{ end }}
+        <span class="partner-name">{{ .name }}</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- ── Institutions ───────────────────────────────────────────────────────── -->
 <section class="institutions">
   <div class="institutions-inner">
     <p class="inst-label">Anchor institutions leading TREN</p>
-    <!-- INSTITUTION LOGOS ──────────────────────────────────────────────────
-         To add logos: place files in static/images/institutions/
-           static/images/institutions/tsu-logo.png
-           static/images/institutions/mtsu-logo.png
-           static/images/institutions/ttu-logo.png
-           static/images/institutions/utc-logo.png
-         Size: 200 x 80px, transparent PNG preferred
-         Until then, abbreviated names display automatically.
-         ──────────────────────────────────────────────────────────────────── -->
     <div class="inst-grid">
       {{ range .Site.Params.institutions }}
       <div class="inst-card">

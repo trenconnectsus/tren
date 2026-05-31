@@ -24,3 +24,18 @@ NEWS / EVENT IMAGES (per content item)
 
 Until real images are provided, picsum.photos placeholders
 are used automatically — the site will not break.
+
+PARTNER LOGOS
+  Folder: static/images/partners/
+  Format: transparent PNG, ~180x70px
+  Naming matches data/partners.yaml logo field:
+    nsf-logo.png
+    internet2-logo.png
+    ornl-logo.png
+    tbr-logo.png
+    ... etc
+
+NETWORK MAP
+  Replace the placeholder SVG in layouts/index.html with:
+  Option A: A real SVG file at static/images/network-map.svg
+  Option B: An embedded interactive map (Leaflet.js) — discuss with dev

@@ -1,0 +1,46 @@
+# Partners displayed on the homepage
+# tier: "primary" = larger display, "secondary" = smaller grid
+# logo: filename in static/images/partners/ — leave blank until you have the file
+# url: partner website
+
+primary:
+  - name: "National Science Foundation"
+    abbr: "NSF"
+    logo: ""
+    url: "https://www.nsf.gov"
+
+  - name: "Internet2"
+    abbr: "Internet2"
+    logo: ""
+    url: "https://internet2.edu"
+
+  - name: "Oak Ridge National Laboratory"
+    abbr: "ORNL"
+    logo: ""
+    url: "https://www.ornl.gov"
+
+secondary:
+  - name: "Tennessee Board of Regents"
+    abbr: "TBR"
+    logo: ""
+    url: "https://www.tbr.edu"
+
+  - name: "State of Tennessee"
+    abbr: "TN"
+    logo: ""
+    url: "https://www.tn.gov"
+
+  - name: "EDUCAUSE"
+    abbr: "EDUCAUSE"
+    logo: ""
+    url: "https://www.educause.edu"
+
+  - name: "Southern Cross"
+    abbr: "SX"
+    logo: ""
+    url: "#"
+
+  - name: "Open Science Grid"
+    abbr: "OSG"
+    logo: ""
+    url: "https://osg-htc.org"
