@@ -90,34 +90,47 @@
   <div class="partners-inner">
     <div class="eyebrow" style="text-align:center;margin-bottom:0.5rem">Network</div>
     <h2 class="partners-title">Partners &amp; collaborators</h2>
-    <p class="partners-sub">TREN is made possible through collaboration with national research organizations, state agencies, and peer networks.</p>
+    <p class="partners-sub">TREN connects Tennessee's research universities to national infrastructure through partnerships with leading research organizations.</p>
 
-    <!-- Primary partners -->
-    <!-- PARTNER LOGOS: place files in static/images/partners/
-         Naming: nsf-logo.png, internet2-logo.png, ornl-logo.png etc.
-         Size: 180x70px, transparent PNG preferred -->
-    <div class="partners-primary">
+    <p class="partners-group-label">Primary partners</p>
+    <div class="partners-row">
       {{ range .Site.Data.partners.primary }}
       <a href="{{ .url }}" class="partner-card partner-card--primary" target="_blank" rel="noopener">
-        {{ if .logo }}
-        <img src="{{ (printf "images/partners/%s" .logo) | relURL }}" alt="{{ .name }}">
-        {{ else }}
-        <span class="partner-placeholder">{{ .abbr }}</span>
-        {{ end }}
+        {{ if .logo_url }}<img src="{{ .logo_url }}" alt="{{ .name }}" onerror="this.style.display='none'">
+        {{ else }}<span class="partner-placeholder">{{ .abbr }}</span>{{ end }}
         <span class="partner-name">{{ .name }}</span>
       </a>
       {{ end }}
     </div>
 
-    <!-- Secondary partners -->
-    <div class="partners-secondary">
-      {{ range .Site.Data.partners.secondary }}
+    <p class="partners-group-label">R1 Research Universities</p>
+    <div class="partners-row">
+      {{ range .Site.Data.partners.r1 }}
       <a href="{{ .url }}" class="partner-card" target="_blank" rel="noopener">
-        {{ if .logo }}
-        <img src="{{ (printf "images/partners/%s" .logo) | relURL }}" alt="{{ .name }}">
-        {{ else }}
-        <span class="partner-placeholder partner-placeholder--sm">{{ .abbr }}</span>
-        {{ end }}
+        {{ if .logo_url }}<img src="{{ .logo_url }}" alt="{{ .name }}" onerror="this.style.display='none'">
+        {{ else }}<span class="partner-placeholder">{{ .abbr }}</span>{{ end }}
+        <span class="partner-name">{{ .name }}</span>
+      </a>
+      {{ end }}
+    </div>
+
+    <p class="partners-group-label">R2 Research Universities</p>
+    <div class="partners-row">
+      {{ range .Site.Data.partners.r2 }}
+      <a href="{{ .url }}" class="partner-card" target="_blank" rel="noopener">
+        {{ if .logo_url }}<img src="{{ .logo_url }}" alt="{{ .name }}" onerror="this.style.display='none'">
+        {{ else }}<span class="partner-placeholder">{{ .abbr }}</span>{{ end }}
+        <span class="partner-name">{{ .name }}</span>
+      </a>
+      {{ end }}
+    </div>
+
+    <p class="partners-group-label">Special institutions</p>
+    <div class="partners-row">
+      {{ range .Site.Data.partners.special }}
+      <a href="{{ .url }}" class="partner-card" target="_blank" rel="noopener">
+        {{ if .logo_url }}<img src="{{ .logo_url }}" alt="{{ .name }}" onerror="this.style.display='none'">
+        {{ else }}<span class="partner-placeholder">{{ .abbr }}</span>{{ end }}
         <span class="partner-name">{{ .name }}</span>
       </a>
       {{ end }}

@@ -1,138 +1,144 @@
 # TREN Network Topology
 # ─────────────────────────────────────────────────────────────
-# To mark a link or node as live:
-#   change  status: planned
-#   to      status: active
-# Then commit and push — the map updates automatically.
+# status options:
+#   active   = live, solid line/filled marker (green)
+#   planned  = not yet live, dashed line (blue, dimmed)
+#   degraded = issue detected, (yellow/orange) — triggers alert
+#   down     = offline (red)
+#
+# To mark a link live: change status: planned → active and push.
 # ─────────────────────────────────────────────────────────────
 
-# Hub nodes — backbone anchor points (rendered as yellow stars)
-# x/y are positions in a 800x330 coordinate space
 hubs:
   - id: memphis
     name: Memphis
-    x: 75
-    y: 210
-    status: planned
+    lat: 35.146025
+    lng: -90.051764
+    status: degraded          # ← demo: shows yellow warning
 
   - id: nashville
     name: Nashville
-    x: 355
-    y: 162
-    status: planned
+    lat: 36.162277
+    lng: -86.774298
+    status: active
 
   - id: cookeville
     name: Cookeville
-    x: 492
-    y: 142
-    status: planned
+    lat: 36.162389
+    lng: -85.499706
+    status: active
 
   - id: knoxville
     name: Knoxville
-    x: 662
-    y: 135
-    status: planned
+    lat: 35.960395
+    lng: -83.921026
+    status: active
 
   - id: chattanooga
     name: Chattanooga
-    x: 538
-    y: 238
-    status: planned
+    lat: 35.045722
+    lng: -85.309488
+    status: active
 
-# Backbone links between hubs (rendered as blue lines)
 links:
   - from: memphis
     to: nashville
-    status: planned
+    status: active
 
   - from: nashville
     to: cookeville
-    status: planned
+    status: active
 
   - from: cookeville
     to: knoxville
-    status: planned
+    status: active
 
   - from: nashville
     to: chattanooga
-    status: planned
+    status: active
 
   - from: cookeville
     to: chattanooga
-    status: planned
+    status: active
 
   - from: memphis
     to: chattanooga
-    status: planned
+    status: planned           # ← demo: shows dashed/planned
 
-# University and affiliate nodes (rendered as green circles)
 affiliates:
   - id: univ-memphis
-    name: Univ. of Memphis
+    name: University of Memphis
     hub: memphis
-    x: 48
-    y: 185
-    status: planned
+    lat: 35.118513
+    lng: -89.937167
+    status: active
 
   - id: uthsc
-    name: UTHSC
+    name: UT Health Sciences Center
     hub: memphis
-    x: 95
-    y: 178
-    status: planned
+    lat: 35.153800
+    lng: -90.033900
+    status: active
 
   - id: st-jude
     name: St. Jude Children's Research Hospital
     hub: memphis
-    x: 65
-    y: 242
-    status: planned
+    lat: 35.150900
+    lng: -90.041700
+    status: active
 
   - id: vanderbilt
-    name: Vanderbilt Univ.
+    name: Vanderbilt University
     hub: nashville
-    x: 318
-    y: 135
-    status: planned
+    lat: 36.144700
+    lng: -86.802700
+    status: active
 
   - id: tsu
-    name: Tennessee State Univ.
+    name: Tennessee State University
     hub: nashville
-    x: 342
-    y: 192
-    status: planned
+    lat: 36.167900
+    lng: -86.802500
+    status: active
 
   - id: mtsu
-    name: MTSU
+    name: Middle Tennessee State University
     hub: nashville
-    x: 422
-    y: 148
-    status: planned
+    lat: 35.846040
+    lng: -86.392110
+    status: active
 
-  - id: crossville-dc
-    name: Crossville Data Center
+  - id: ttu
+    name: Tennessee Technological University
     hub: cookeville
-    x: 576
-    y: 150
-    status: planned
+    lat: 36.162389
+    lng: -85.499706
+    status: active
 
-  - id: ut-knoxville
-    name: Univ. of Tennessee
+  - id: etsu
+    name: East Tennessee State University
     hub: knoxville
-    x: 698
-    y: 118
-    status: planned
+    lat: 36.297800
+    lng: -82.362100
+    status: active
 
-  - id: oak-ridge
-    name: Oak Ridge Nat. Lab
+  - id: utk
+    name: University of Tennessee, Knoxville
     hub: knoxville
-    x: 635
-    y: 175
-    status: planned
+    lat: 35.954400
+    lng: -83.928300
+    status: active
+
+  - id: ornl
+    name: Oak Ridge National Laboratory
+    hub: knoxville
+    lat: 36.010356
+    lng: -84.269645
+    status: active
 
   - id: utc
     name: UT Chattanooga
     hub: chattanooga
-    x: 568
-    y: 255
-    status: planned
+    lat: 35.048200
+    lng: -85.308900
+    status: active

@@ -1,46 +1,80 @@
-# Partners displayed on the homepage
-# tier: "primary" = larger display, "secondary" = smaller grid
-# logo: filename in static/images/partners/ — leave blank until you have the file
-# url: partner website
+# Partners — logos pulled from public sources at render time
+# logo_url: public image URL (Clearbit logo API or Wikipedia Commons)
+# Leave blank if unavailable — abbreviation shows instead
 
 primary:
   - name: "National Science Foundation"
     abbr: "NSF"
-    logo: ""
+    logo_url: "https://logo.clearbit.com/nsf.gov"
     url: "https://www.nsf.gov"
 
   - name: "Internet2"
     abbr: "Internet2"
-    logo: ""
+    logo_url: "https://logo.clearbit.com/internet2.edu"
     url: "https://internet2.edu"
 
   - name: "Oak Ridge National Laboratory"
     abbr: "ORNL"
-    logo: ""
+    logo_url: "https://logo.clearbit.com/ornl.gov"
     url: "https://www.ornl.gov"
 
-secondary:
-  - name: "Tennessee Board of Regents"
-    abbr: "TBR"
-    logo: ""
-    url: "https://www.tbr.edu"
+  - name: "Southern Crossroads (SOX)"
+    abbr: "SOX"
+    logo_url: "https://logo.clearbit.com/sox.net"
+    url: "https://www.sox.net"
 
-  - name: "State of Tennessee"
-    abbr: "TN"
-    logo: ""
-    url: "https://www.tn.gov"
+# R1 Research Universities
+r1:
+  - name: "University of Tennessee, Knoxville"
+    abbr: "UTK"
+    logo_url: "https://logo.clearbit.com/tennessee.edu"
+    url: "https://www.utk.edu"
 
-  - name: "EDUCAUSE"
-    abbr: "EDUCAUSE"
-    logo: ""
-    url: "https://www.educause.edu"
+  - name: "Vanderbilt University"
+    abbr: "Vanderbilt"
+    logo_url: "https://logo.clearbit.com/vanderbilt.edu"
+    url: "https://www.vanderbilt.edu"
 
-  - name: "Southern Cross"
-    abbr: "SX"
-    logo: ""
-    url: "#"
+# R2 Research Universities
+r2:
+  - name: "Tennessee State University"
+    abbr: "TSU"
+    logo_url: "https://logo.clearbit.com/tnstate.edu"
+    url: "https://www.tnstate.edu"
 
-  - name: "Open Science Grid"
-    abbr: "OSG"
-    logo: ""
-    url: "https://osg-htc.org"
+  - name: "Tennessee Technological University"
+    abbr: "TTU"
+    logo_url: "https://logo.clearbit.com/tntech.edu"
+    url: "https://www.tntech.edu"
+
+  - name: "Middle Tennessee State University"
+    abbr: "MTSU"
+    logo_url: "https://logo.clearbit.com/mtsu.edu"
+    url: "https://www.mtsu.edu"
+
+  - name: "UT Chattanooga"
+    abbr: "UTC"
+    logo_url: "https://logo.clearbit.com/utc.edu"
+    url: "https://www.utc.edu"
+
+  - name: "University of Memphis"
+    abbr: "UofM"
+    logo_url: "https://logo.clearbit.com/memphis.edu"
+    url: "https://www.memphis.edu"
+
+  - name: "East Tennessee State University"
+    abbr: "ETSU"
+    logo_url: "https://logo.clearbit.com/etsu.edu"
+    url: "https://www.etsu.edu"
+
+# Special institutions
+special:
+  - name: "St. Jude Children's Research Hospital"
+    abbr: "St. Jude"
+    logo_url: "https://logo.clearbit.com/stjude.org"
+    url: "https://www.stjude.org"
+
+  - name: "UT Health Sciences Center"
+    abbr: "UTHSC"
+    logo_url: "https://logo.clearbit.com/uthsc.edu"
+    url: "https://www.uthsc.edu"
