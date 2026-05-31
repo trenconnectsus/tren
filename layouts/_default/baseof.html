@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} — {{ .Site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+  <link rel="icon" href="{{ "favicon.ico" | relURL }}">
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="{{ "/" | relURL }}" class="nav-logo">
+        <span class="logo-mark">TREN</span>
+        <span class="logo-sub">Tennessee Research &amp; Education Network</span>
+      </a>
+      <div class="nav-links">
+        {{ range .Site.Params.nav }}
+          <a href="{{ .url | relURL }}"{{ if eq $.RelPermalink .url }} class="active"{{ end }}>{{ .name }}</a>
+        {{ end }}
+        <a href="{{ "/contact/" | relURL }}" class="nav-cta">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <p class="footer-title">TREN — Tennessee Research &amp; Education Network</p>
+        <p>{{ .Site.Params.nsf_award }} · Supported by the National Science Foundation</p>
+      </div>
+      <div class="footer-links">
+        {{ range .Site.Params.nav }}
+          <a href="{{ .url | relURL }}">{{ .name }}</a>
+        {{ end }}
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

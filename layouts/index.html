@@ -1,0 +1,92 @@
+{{ define "main" }}
+
+<!-- Hero -->
+<section class="hero">
+  <img src="{{ "images/hero.jpg" | relURL }}" alt="Tennessee Research and Education Network" class="hero-img">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-kicker">{{ .Site.Params.nsf_award }}</div>
+    <h1 class="hero-h1">Tennessee's statewide research network, <em>being built now</em></h1>
+    <p class="hero-p">Connecting four anchor universities into the 100G backbone that Tennessee's 83 institutions of higher education have never had.</p>
+    <div class="hero-actions">
+      <a href="{{ "/about/" | relURL }}" class="btn-primary">About TREN</a>
+      <a href="{{ "/events/" | relURL }}" class="btn-ghost">View events</a>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-bar">
+  {{ range .Site.Data.stats }}   <!-- ← content/data/stats.yaml controls these numbers -->
+  <div class="stat">
+    <div class="stat-n">{{ .number }}</div>
+    <div class="stat-l">{{ .label }}</div>
+  </div>
+  {{ end }}
+</div>
+
+<!-- Latest news -->
+<section class="home-section">
+  <div class="home-section-inner">
+    <div class="section-header">
+      <div class="eyebrow">Latest</div>
+      <h2>News &amp; updates</h2>
+      <a href="{{ "/news/" | relURL }}" class="see-all">See all →</a>
+    </div>
+    <div class="news-grid">
+      {{ range first 3 (where .Site.RegularPages "Section" "news").ByDate.Reverse }}
+      <a href="{{ .RelPermalink }}" class="news-card">
+        {{ if .Params.image }}
+        <img src="{{ .Params.image }}" alt="{{ .Params.image_alt | default .Title }}" class="news-card-img">
+        {{ end }}
+        <div class="news-card-body">
+          {{ if .Params.tag }}<span class="tag tag-{{ .Params.tag }}">{{ .Params.tag | humanize }}</span>{{ end }}
+          <h3>{{ .Title }}</h3>
+          <p class="news-date">{{ .Date.Format "January 2006" }}</p>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Upcoming events -->
+<section class="home-section home-section--alt">
+  <div class="home-section-inner">
+    <div class="eyebrow">Calendar</div>
+    <h2>Upcoming events</h2>
+    <div class="events-list">
+      {{ range first 4 (where .Site.RegularPages "Section" "events").ByDate }}
+      {{ if ge .Date.Unix now.Unix }}
+      <a href="{{ .RelPermalink }}" class="event-row">
+        <div class="event-date-block">
+          <div class="event-month">{{ .Date.Format "Jan" }}</div>
+          <div class="event-day">{{ .Date.Format "2" }}</div>
+        </div>
+        <div class="event-info">
+          <div class="event-title">{{ .Title }}</div>
+          <div class="event-loc">{{ .Params.location }}</div>
+        </div>
+      </a>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Institutions -->
+<section class="institutions">
+  <div class="institutions-inner">
+    <p class="inst-label">Anchor institutions leading TREN</p>
+    <div class="inst-grid">
+      {{ range .Site.Params.institutions }}
+      <div class="inst-card">
+        <div class="inst-abbr">{{ .abbr }}</div>
+        <div class="inst-name">{{ .name }}</div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ end }}

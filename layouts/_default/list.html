@@ -1,0 +1,27 @@
+{{ define "main" }}
+<div class="page-wrap">
+  <div class="page-inner">
+    <header class="page-header">
+      <div class="eyebrow">{{ .Section | humanize }}</div>
+      <h1>{{ .Title }}</h1>
+    </header>
+
+    <div class="list-grid">
+      {{ range .Pages.ByDate.Reverse }}
+      <a href="{{ .RelPermalink }}" class="list-card">
+        {{ if .Params.image }}
+        <img src="{{ .Params.image | relURL }}" alt="{{ .Params.image_alt | default .Title }}" class="list-card-img">
+        {{ end }}
+        <div class="list-card-body">
+          {{ if .Params.tag }}<span class="tag tag-{{ .Params.tag }}">{{ .Params.tag | humanize }}</span>{{ end }}
+          <h2>{{ .Title }}</h2>
+          {{ if .Date }}<p class="list-date">{{ .Date.Format "January 2, 2006" }}</p>{{ end }}
+          {{ if .Summary }}<p class="list-summary">{{ .Summary }}</p>{{ end }}
+        </div>
+      </a>
+      {{ end }}
+    </div>
+
+  </div>
+</div>
+{{ end }}

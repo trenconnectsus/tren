@@ -1,0 +1,14 @@
+# Homepage stats bar
+# Edit these numbers as TREN grows — they appear automatically on the homepage
+
+- number: "4"
+  label: "Anchor universities"
+
+- number: "83"
+  label: "Institutions to serve"
+
+- number: "100G"
+  label: "Target backbone speed"
+
+- number: "2026"
+  label: "Operational target"

@@ -1,0 +1,50 @@
+baseURL: "https://trenconnectsus.github.io/tren/"
+title: "TREN — Tennessee Research & Education Network"
+languageCode: "en-us"
+theme: ""
+
+paginate: 10
+
+params:
+  description: "Building the statewide 100G research backbone for Tennessee's institutions of higher education."
+  nsf_award: "NSF CC* Award #2430341"
+  contact_email: "info@trenconnects.us"   # ← confirm this address
+
+  nav:
+    - name: "About"
+      url: "/about/"
+    - name: "Community"
+      url: "/community/"
+    - name: "Events"
+      url: "/events/"
+    - name: "News"
+      url: "/news/"
+    - name: "Publications"
+      url: "/publications/"
+    - name: "Contact"
+      url: "/contact/"
+
+  institutions:
+    - name: "Tennessee State University"
+      abbr: "TSU"
+    - name: "Middle Tennessee State University"
+      abbr: "MTSU"
+    - name: "Tennessee Technological University"
+      abbr: "TTU"
+    - name: "UT Chattanooga"
+      abbr: "UTC"
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: false
+
+outputs:
+  home:
+    - HTML
+  section:
+    - HTML
+  taxonomy:
+    - HTML
+  term:
+    - HTML

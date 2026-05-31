@@ -1,8 +1,4 @@
 ---
-menu:
-    main:
-        name: Home
-        weight: 1
-        params:
-            icon: home
+title: "TREN — Tennessee Research & Education Network"
+description: "Building the statewide 100G research backbone for Tennessee's institutions of higher education."
 ---
