@@ -1,0 +1,138 @@
+# TREN Network Topology
+# ─────────────────────────────────────────────────────────────
+# To mark a link or node as live:
+#   change  status: planned
+#   to      status: active
+# Then commit and push — the map updates automatically.
+# ─────────────────────────────────────────────────────────────
+
+# Hub nodes — backbone anchor points (rendered as yellow stars)
+# x/y are positions in a 800x330 coordinate space
+hubs:
+  - id: memphis
+    name: Memphis
+    x: 75
+    y: 210
+    status: planned
+
+  - id: nashville
+    name: Nashville
+    x: 355
+    y: 162
+    status: planned
+
+  - id: cookeville
+    name: Cookeville
+    x: 492
+    y: 142
+    status: planned
+
+  - id: knoxville
+    name: Knoxville
+    x: 662
+    y: 135
+    status: planned
+
+  - id: chattanooga
+    name: Chattanooga
+    x: 538
+    y: 238
+    status: planned
+
+# Backbone links between hubs (rendered as blue lines)
+links:
+  - from: memphis
+    to: nashville
+    status: planned
+
+  - from: nashville
+    to: cookeville
+    status: planned
+
+  - from: cookeville
+    to: knoxville
+    status: planned
+
+  - from: nashville
+    to: chattanooga
+    status: planned
+
+  - from: cookeville
+    to: chattanooga
+    status: planned
+
+  - from: memphis
+    to: chattanooga
+    status: planned
+
+# University and affiliate nodes (rendered as green circles)
+affiliates:
+  - id: univ-memphis
+    name: Univ. of Memphis
+    hub: memphis
+    x: 48
+    y: 185
+    status: planned
+
+  - id: uthsc
+    name: UTHSC
+    hub: memphis
+    x: 95
+    y: 178
+    status: planned
+
+  - id: st-jude
+    name: St. Jude Children's Research Hospital
+    hub: memphis
+    x: 65
+    y: 242
+    status: planned
+
+  - id: vanderbilt
+    name: Vanderbilt Univ.
+    hub: nashville
+    x: 318
+    y: 135
+    status: planned
+
+  - id: tsu
+    name: Tennessee State Univ.
+    hub: nashville
+    x: 342
+    y: 192
+    status: planned
+
+  - id: mtsu
+    name: MTSU
+    hub: nashville
+    x: 422
+    y: 148
+    status: planned
+
+  - id: crossville-dc
+    name: Crossville Data Center
+    hub: cookeville
+    x: 576
+    y: 150
+    status: planned
+
+  - id: ut-knoxville
+    name: Univ. of Tennessee
+    hub: knoxville
+    x: 698
+    y: 118
+    status: planned
+
+  - id: oak-ridge
+    name: Oak Ridge Nat. Lab
+    hub: knoxville
+    x: 635
+    y: 175
+    status: planned
+
+  - id: utc
+    name: UT Chattanooga
+    hub: chattanooga
+    x: 568
+    y: 255
+    status: planned
