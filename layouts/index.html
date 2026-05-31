@@ -96,7 +96,7 @@
     <div class="partners-row">
       {{ range .Site.Data.partners.primary }}
       <a href="{{ .url }}" class="partner-card partner-card--primary" target="_blank" rel="noopener">
-        {{ if .logo_url }}<img src="{{ .logo_url }}" alt="{{ .name }}" onerror="this.style.display='none'">
+        {{ if .logo }}<img src="{{ (printf "images/partners/%s" .logo) | relURL }}" alt="{{ .name }}">
         {{ else }}<span class="partner-placeholder">{{ .abbr }}</span>{{ end }}
         <span class="partner-name">{{ .name }}</span>
       </a>
@@ -107,7 +107,7 @@
     <div class="partners-row">
       {{ range .Site.Data.partners.r1 }}
       <a href="{{ .url }}" class="partner-card" target="_blank" rel="noopener">
-        {{ if .logo_url }}<img src="{{ .logo_url }}" alt="{{ .name }}" onerror="this.style.display='none'">
+        {{ if .logo }}<img src="{{ (printf "images/partners/%s" .logo) | relURL }}" alt="{{ .name }}">
         {{ else }}<span class="partner-placeholder">{{ .abbr }}</span>{{ end }}
         <span class="partner-name">{{ .name }}</span>
       </a>
@@ -118,7 +118,7 @@
     <div class="partners-row">
       {{ range .Site.Data.partners.r2 }}
       <a href="{{ .url }}" class="partner-card" target="_blank" rel="noopener">
-        {{ if .logo_url }}<img src="{{ .logo_url }}" alt="{{ .name }}" onerror="this.style.display='none'">
+        {{ if .logo }}<img src="{{ (printf "images/partners/%s" .logo) | relURL }}" alt="{{ .name }}">
         {{ else }}<span class="partner-placeholder">{{ .abbr }}</span>{{ end }}
         <span class="partner-name">{{ .name }}</span>
       </a>
@@ -129,7 +129,7 @@
     <div class="partners-row">
       {{ range .Site.Data.partners.special }}
       <a href="{{ .url }}" class="partner-card" target="_blank" rel="noopener">
-        {{ if .logo_url }}<img src="{{ .logo_url }}" alt="{{ .name }}" onerror="this.style.display='none'">
+        {{ if .logo }}<img src="{{ (printf "images/partners/%s" .logo) | relURL }}" alt="{{ .name }}">
         {{ else }}<span class="partner-placeholder">{{ .abbr }}</span>{{ end }}
         <span class="partner-name">{{ .name }}</span>
       </a>

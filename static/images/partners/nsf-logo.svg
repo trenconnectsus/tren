@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 64" width="160" height="64">
+  <rect width="160" height="64" rx="6" fill="#1565C0"/>
+  <text x="80" y="24" text-anchor="middle" font-size="20" font-weight="700"
+    font-family="system-ui,sans-serif" fill="#FFFFFF">NSF</text>
+  <text x="80" y="42" text-anchor="middle" font-size="9.5"
+    font-family="system-ui,sans-serif" fill="#FFFFFF" opacity="0.85">National</text>
+  <text x="80" y="55" text-anchor="middle" font-size="9.5"
+    font-family="system-ui,sans-serif" fill="#FFFFFF" opacity="0.85">Science Foundation</text>
+</svg>
