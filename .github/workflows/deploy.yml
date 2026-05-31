@@ -15,11 +15,14 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: "0.124.1"
+      HUGO_VERSION: "0.124.1"   # ← update only for security releases
     steps:
       - name: Checkout
         uses: actions/checkout@v4
