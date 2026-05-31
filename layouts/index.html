@@ -1,6 +1,11 @@
 {{ define "main" }}
 
 <!-- Hero -->
+<!-- HERO IMAGE ─────────────────────────────────────────────────────────────
+     Replace: static/images/hero.jpg
+     Size:    1400 x 600px minimum, landscape
+     Tip:     Tennessee campus, Nashville skyline, or fiber infrastructure
+     ──────────────────────────────────────────────────────────────────────── -->
 <section class="hero">
   <img src="{{ "images/hero.jpg" | relURL }}" alt="Tennessee Research and Education Network" class="hero-img">
   <div class="hero-overlay"></div>
@@ -17,7 +22,7 @@
 
 <!-- Stats -->
 <div class="stats-bar">
-  {{ range .Site.Data.stats }}   <!-- ← content/data/stats.yaml controls these numbers -->
+  {{ range .Site.Data.stats }}
   <div class="stat">
     <div class="stat-n">{{ .number }}</div>
     <div class="stat-l">{{ .label }}</div>
@@ -29,15 +34,26 @@
 <section class="home-section">
   <div class="home-section-inner">
     <div class="section-header">
-      <div class="eyebrow">Latest</div>
-      <h2>News &amp; updates</h2>
+      <div>
+        <div class="eyebrow">Latest</div>
+        <h2>News &amp; updates</h2>
+      </div>
       <a href="{{ "/news/" | relURL }}" class="see-all">See all →</a>
     </div>
+    <!-- NEWS CARD IMAGES ────────────────────────────────────────────────────
+         Place image inside the news item's folder:
+           content/news/[item-name]/[image-name.jpg]
+         Reference it in that item's index.md frontmatter:
+           image: image-name.jpg
+         Size: 800 x 500px minimum, landscape
+         ──────────────────────────────────────────────────────────────────── -->
     <div class="news-grid">
       {{ range first 3 (where .Site.RegularPages "Section" "news").ByDate.Reverse }}
       <a href="{{ .RelPermalink }}" class="news-card">
         {{ if .Params.image }}
-        <img src="{{ .Params.image }}" alt="{{ .Params.image_alt | default .Title }}" class="news-card-img">
+        <img src="{{ .RelPermalink }}{{ .Params.image }}" alt="{{ .Params.image_alt | default .Title }}" class="news-card-img">
+        {{ else }}
+        <img src="https://picsum.photos/seed/{{ .File.BaseFileName }}/800/500" alt="{{ .Title }}" class="news-card-img">
         {{ end }}
         <div class="news-card-body">
           {{ if .Params.tag }}<span class="tag tag-{{ .Params.tag }}">{{ .Params.tag | humanize }}</span>{{ end }}
@@ -53,8 +69,13 @@
 <!-- Upcoming events -->
 <section class="home-section home-section--alt">
   <div class="home-section-inner">
-    <div class="eyebrow">Calendar</div>
-    <h2>Upcoming events</h2>
+    <div class="section-header">
+      <div>
+        <div class="eyebrow">Calendar</div>
+        <h2>Upcoming events</h2>
+      </div>
+      <a href="{{ "/events/" | relURL }}" class="see-all">See all →</a>
+    </div>
     <div class="events-list">
       {{ range first 4 (where .Site.RegularPages "Section" "events").ByDate }}
       {{ if ge .Date.Unix now.Unix }}
@@ -78,6 +99,15 @@
 <section class="institutions">
   <div class="institutions-inner">
     <p class="inst-label">Anchor institutions leading TREN</p>
+    <!-- INSTITUTION LOGOS ──────────────────────────────────────────────────
+         To add logos: place files in static/images/institutions/
+           static/images/institutions/tsu-logo.png
+           static/images/institutions/mtsu-logo.png
+           static/images/institutions/ttu-logo.png
+           static/images/institutions/utc-logo.png
+         Size: 200 x 80px, transparent PNG preferred
+         Until then, abbreviated names display automatically.
+         ──────────────────────────────────────────────────────────────────── -->
     <div class="inst-grid">
       {{ range .Site.Params.institutions }}
       <div class="inst-card">
