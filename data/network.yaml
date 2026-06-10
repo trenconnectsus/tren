@@ -45,10 +45,6 @@ links:
     to: nashville
     status: active
 
-  - from: knoxville
-    to: chattanooga
-    status: active    
-
   - from: nashville
     to: cookeville
     status: active

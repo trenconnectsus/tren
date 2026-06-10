@@ -13,8 +13,12 @@
   <nav class="nav">
     <div class="nav-inner">
       <a href="{{ "/" | relURL }}" class="nav-logo">
-        <span class="logo-mark">TREN</span>
-        <span class="logo-sub">Tennessee Research &amp; Education Network</span>
+        <img src="{{ "images/tren-logo.png" | relURL }}" alt="TREN" class="nav-logo-img"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <span class="nav-logo-text" style="display:none">
+          <span class="logo-mark">TREN</span>
+          <span class="logo-sub">Tennessee Research &amp; Education Network</span>
+        </span>
       </a>
       <div class="nav-links">
         {{ range .Site.Params.nav }}

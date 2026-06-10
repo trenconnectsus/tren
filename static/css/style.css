@@ -45,6 +45,8 @@ body {
 .nav-logo { display: flex; flex-direction: column; gap: 1px; }
 .logo-mark { font-size: 15px; font-weight: 700; color: var(--orange); letter-spacing: 0.08em; }
 .logo-sub  { font-size: 10px; color: rgba(255,255,255,0.6); }
+.nav-logo-img { height: 36px; width: auto; display: block; }
+.nav-logo-text { display: flex; flex-direction: column; gap: 1px; }
 .nav-links { display: flex; gap: 24px; align-items: center; }
 .nav-links a { font-size: 13px; color: rgba(255,255,255,0.75); }
 .nav-links a:hover { color: var(--orange); }

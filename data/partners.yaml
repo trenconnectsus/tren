@@ -1,8 +1,8 @@
-# Partners — logos in static/images/partners/
-# Replace [name]-logo.svg with the real logo file when available
-# url: partner website link
+# All partners in one flat list — edit this file to add/remove/reorder
+# logo: filename in static/images/partners/
+# url: partner website
 
-primary:
+partners:
   - name: "National Science Foundation"
     abbr: "NSF"
     logo: "nsf-logo.svg"
@@ -23,7 +23,6 @@ primary:
     logo: "sox-logo.svg"
     url: "https://www.sox.net"
 
-r1:
   - name: "University of Tennessee, Knoxville"
     abbr: "UTK"
     logo: "utk-logo.svg"
@@ -34,7 +33,6 @@ r1:
     logo: "vanderbilt-logo.svg"
     url: "https://www.vanderbilt.edu"
 
-r2:
   - name: "Tennessee State University"
     abbr: "TSU"
     logo: "tsu-logo.svg"
@@ -65,7 +63,6 @@ r2:
     logo: "etsu-logo.svg"
     url: "https://www.etsu.edu"
 
-special:
   - name: "St. Jude Children's Research Hospital"
     abbr: "St. Jude"
     logo: "stjude-logo.svg"

@@ -6,8 +6,8 @@
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-kicker">{{ .Site.Params.nsf_award }}</div>
-    <h1 class="hero-h1">Tennessee's statewide research network, <em>being built now</em></h1>
-    <p class="hero-p">Connecting four anchor universities into the 100G backbone that Tennessee's 83 institutions of higher education have never had.</p>
+    <h1 class="hero-h1">Connecting Tennessee's higher education institutions<br><em>to each other and to the world</em></h1>
+    <p class="hero-p">Tennessee has 83 institutions of higher education and no statewide research network. TREN changes that — building the 100G backbone that connects every campus to national research infrastructure.</p>
     <div class="hero-actions">
       <a href="{{ "/about/" | relURL }}" class="btn-primary">About TREN</a>
       <a href="{{ "/events/" | relURL }}" class="btn-ghost">View events</a>
@@ -67,8 +67,7 @@
       <a href="{{ "/events/" | relURL }}" class="see-all">See all →</a>
     </div>
     <div class="events-list">
-      {{ range first 4 (where .Site.RegularPages "Section" "events").ByDate }}
-      {{ if ge .Date.Unix now.Unix }}
+      {{ range first 4 (where .Site.RegularPages "Section" "events").ByDate.Reverse }}
       <a href="{{ .RelPermalink }}" class="event-row">
         <div class="event-date-block">
           <div class="event-month">{{ .Date.Format "Jan" }}</div>
@@ -80,7 +79,6 @@
         </div>
       </a>
       {{ end }}
-      {{ end }}
     </div>
   </div>
 </section>
@@ -91,46 +89,10 @@
     <div class="eyebrow" style="text-align:center;margin-bottom:0.5rem">Network</div>
     <h2 class="partners-title">Partners &amp; collaborators</h2>
     <p class="partners-sub">TREN connects Tennessee's research universities to national infrastructure through partnerships with leading research organizations.</p>
-
-    <p class="partners-group-label">Primary partners</p>
     <div class="partners-row">
-      {{ range .Site.Data.partners.primary }}
-      <a href="{{ .url }}" class="partner-card partner-card--primary" target="_blank" rel="noopener">
-        {{ if .logo }}<img src="{{ (printf "images/partners/%s" .logo) | relURL }}" alt="{{ .name }}">
-        {{ else }}<span class="partner-placeholder">{{ .abbr }}</span>{{ end }}
-        <span class="partner-name">{{ .name }}</span>
-      </a>
-      {{ end }}
-    </div>
-
-    <p class="partners-group-label">R1 Research Universities</p>
-    <div class="partners-row">
-      {{ range .Site.Data.partners.r1 }}
+      {{ range .Site.Data.partners.partners }}
       <a href="{{ .url }}" class="partner-card" target="_blank" rel="noopener">
-        {{ if .logo }}<img src="{{ (printf "images/partners/%s" .logo) | relURL }}" alt="{{ .name }}">
-        {{ else }}<span class="partner-placeholder">{{ .abbr }}</span>{{ end }}
-        <span class="partner-name">{{ .name }}</span>
-      </a>
-      {{ end }}
-    </div>
-
-    <p class="partners-group-label">R2 Research Universities</p>
-    <div class="partners-row">
-      {{ range .Site.Data.partners.r2 }}
-      <a href="{{ .url }}" class="partner-card" target="_blank" rel="noopener">
-        {{ if .logo }}<img src="{{ (printf "images/partners/%s" .logo) | relURL }}" alt="{{ .name }}">
-        {{ else }}<span class="partner-placeholder">{{ .abbr }}</span>{{ end }}
-        <span class="partner-name">{{ .name }}</span>
-      </a>
-      {{ end }}
-    </div>
-
-    <p class="partners-group-label">Special institutions</p>
-    <div class="partners-row">
-      {{ range .Site.Data.partners.special }}
-      <a href="{{ .url }}" class="partner-card" target="_blank" rel="noopener">
-        {{ if .logo }}<img src="{{ (printf "images/partners/%s" .logo) | relURL }}" alt="{{ .name }}">
-        {{ else }}<span class="partner-placeholder">{{ .abbr }}</span>{{ end }}
+        {{ if .logo }}<img src="{{ (printf "images/partners/%s" .logo) | relURL }}" alt="{{ .name }}">{{ else }}<span class="partner-placeholder">{{ .abbr }}</span>{{ end }}
         <span class="partner-name">{{ .name }}</span>
       </a>
       {{ end }}
@@ -138,19 +100,5 @@
   </div>
 </section>
 
-<!-- ── Institutions ───────────────────────────────────────────────────────── -->
-<section class="institutions">
-  <div class="institutions-inner">
-    <p class="inst-label">Anchor institutions leading TREN</p>
-    <div class="inst-grid">
-      {{ range .Site.Params.institutions }}
-      <div class="inst-card">
-        <div class="inst-abbr">{{ .abbr }}</div>
-        <div class="inst-name">{{ .name }}</div>
-      </div>
-      {{ end }}
-    </div>
-  </div>
-</section>
 
 {{ end }}

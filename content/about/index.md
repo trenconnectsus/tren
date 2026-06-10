@@ -11,11 +11,11 @@ Funded by the National Science Foundation and led by four under-resourced public
 
 ## Our Mission
 
-TREN will connect Tennessee's anchor universities with each other and with larger research organizations, enhance research capacity, foster collaboration, and support education, healthcare, government, and non-profits in their networking needs.
+TREN will connect Tennessee's higher education institutions with each other and with national research infrastructure — enhancing research capacity, fostering collaboration, and supporting education, healthcare, government, and non-profits across the state.
 
 ## Anchor Institutions
 
-TREN is led by four under-resourced public universities spanning the breadth of Tennessee:
+TREN is led by four under-resourced public universities spanning Tennessee:
 
 - **Tennessee Technological University** — Cookeville, TN
 - **Middle Tennessee State University** — Murfreesboro, TN

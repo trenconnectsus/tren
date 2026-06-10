@@ -7,11 +7,7 @@ description: "The TREN leadership team spanning Tennessee's four anchor institut
 
 TREN is led by principal investigators and co-investigators across the four anchor institutions.
 
-<!-- PLACEHOLDER: Replace this section with actual team bios when ready.
-     For each person, include: name, title, institution, photo, brief bio.
-     Photos go in: content/team/[firstname-lastname.jpg] -->
-
-Team bios coming soon.
+*Team bios coming soon. Contact us via the [mailing list](https://lists.tntech.edu/postorius/lists/tren.lists.tntech.edu/) for information.*
 
 ## NSF Acknowledgment
 
