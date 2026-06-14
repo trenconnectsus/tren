@@ -1,0 +1,34 @@
+{{ define "main" }}
+<article>
+  {{ if .Params.image }}
+  <div class="event-banner">
+    <img src="{{ .RelPermalink }}{{ .Params.image }}" alt="{{ .Params.image_alt | default .Title }}" class="event-banner-img">
+    <div class="event-banner-overlay">
+      <div class="event-banner-content">
+        {{ if .Params.tag }}<span class="tag tag-{{ .Params.tag }}">{{ .Params.tag | humanize }}</span>{{ end }}
+        <h1 class="event-banner-title">{{ .Title }}</h1>
+        <p class="event-banner-meta">{{ .Date.Format "January 2, 2006" }}{{ with .Params.location }} · {{ . }}{{ end }}</p>
+      </div>
+    </div>
+  </div>
+  {{ else }}
+  <div class="page-wrap">
+    <div class="page-inner">
+      <header class="page-header">
+        {{ if .Params.tag }}<span class="tag tag-{{ .Params.tag }}" style="margin-bottom:0.75rem;display:inline-block">{{ .Params.tag | humanize }}</span>{{ end }}
+        <h1>{{ .Title }}</h1>
+        <p class="page-date">{{ .Date.Format "January 2, 2006" }}{{ with .Params.location }} · {{ . }}{{ end }}</p>
+      </header>
+    </div>
+  </div>
+  {{ end }}
+  <div class="page-wrap">
+    <div class="page-inner">
+      {{ with .Params.registration }}
+      <a href="{{ . }}" class="btn-primary" style="display:inline-block;margin-bottom:2rem" target="_blank" rel="noopener">Register →</a>
+      {{ end }}
+      <div class="page-content">{{ .Content }}</div>
+    </div>
+  </div>
+</article>
+{{ end }}

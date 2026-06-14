@@ -69,6 +69,11 @@
     <div class="events-list">
       {{ range first 4 (where .Site.RegularPages "Section" "events").ByDate.Reverse }}
       <a href="{{ .RelPermalink }}" class="event-row">
+        {{ if .Params.image }}
+        <img src="{{ .RelPermalink }}{{ .Params.image }}" alt="{{ .Title }}" class="event-row-thumb">
+        {{ else }}
+        <div class="event-row-thumb event-row-thumb--placeholder"></div>
+        {{ end }}
         <div class="event-date-block">
           <div class="event-month">{{ .Date.Format "Jan" }}</div>
           <div class="event-day">{{ .Date.Format "2" }}</div>

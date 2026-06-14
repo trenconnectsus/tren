@@ -1,0 +1,38 @@
+{{ define "main" }}
+<div class="page-wrap">
+  <div class="page-inner">
+    <div class="member-layout">
+      <aside class="member-sidebar">
+        <div class="member-photo">
+          {{ if .Params.image }}
+          <img src="{{ .RelPermalink }}{{ .Params.image }}" alt="{{ .Params.name | default .Title }}">
+          {{ else }}
+          <div class="member-photo--placeholder">?</div>
+          {{ end }}
+        </div>
+        <div class="member-meta">
+          {{ with .Params.email }}<a href="mailto:{{ . }}" class="member-contact">{{ . }}</a>{{ end }}
+          {{ with .Params.linkedin }}<a href="{{ . }}" class="member-contact" target="_blank" rel="noopener">LinkedIn</a>{{ end }}
+          {{ with .Params.website }}<a href="{{ . }}" class="member-contact" target="_blank" rel="noopener">Website</a>{{ end }}
+        </div>
+      </aside>
+      <div class="member-body">
+        <header class="member-header">
+          <h1 class="member-name">{{ .Params.name | default .Title }}</h1>
+          {{ with .Params.title }}<p class="member-role">{{ . }}</p>{{ end }}
+          {{ with .Params.institution }}<p class="member-institution">{{ . }}</p>{{ end }}
+        </header>
+        {{ with .Params.expertise }}
+        <div class="member-tags">
+          {{ range . }}<span class="member-tag">{{ . }}</span>{{ end }}
+        </div>
+        {{ end }}
+        <div class="page-content">{{ .Content }}</div>
+      </div>
+    </div>
+    <div style="margin-top:2rem">
+      <a href="{{ "/team/" | relURL }}" class="member-back">← Back to team</a>
+    </div>
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div class="page-wrap">
+  <div class="page-inner">
+    <header class="page-header">
+      <div class="eyebrow">Calendar</div>
+      <h1>{{ .Title }}</h1>
+    </header>
+    <div class="news-grid">
+      {{ range .Pages.ByDate.Reverse }}
+      <a href="{{ .RelPermalink }}" class="news-card">
+        {{ if .Params.image }}
+        <img src="{{ .RelPermalink }}{{ .Params.image }}" alt="{{ .Params.image_alt | default .Title }}" class="news-card-img">
+        {{ else }}
+        <img src="https://picsum.photos/seed/{{ .File.BaseFileName }}/800/500" alt="{{ .Title }}" class="news-card-img">
+        {{ end }}
+        <div class="news-card-body">
+          {{ if .Params.tag }}<span class="tag tag-{{ .Params.tag }}">{{ .Params.tag | humanize }}</span>{{ end }}
+          <h3>{{ .Title }}</h3>
+          <p class="news-date">{{ .Date.Format "January 2, 2006" }}{{ with .Params.location }} · {{ . }}{{ end }}</p>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,28 @@
+{{ define "main" }}
+<div class="page-wrap">
+  <div class="page-inner">
+    <header class="page-header">
+      <div class="eyebrow">People</div>
+      <h1>{{ .Title }}</h1>
+    </header>
+    <div class="team-grid">
+      {{ range .Pages.ByTitle }}
+      <a href="{{ .RelPermalink }}" class="team-card">
+        <div class="team-card-photo">
+          {{ if .Params.image }}
+          <img src="{{ .RelPermalink }}{{ .Params.image }}" alt="{{ .Params.name | default .Title }}">
+          {{ else }}
+          <div class="team-card-photo--placeholder">?</div>
+          {{ end }}
+        </div>
+        <div class="team-card-info">
+          <div class="team-card-name">{{ .Params.name | default .Title }}</div>
+          {{ with .Params.title }}<div class="team-card-title">{{ . }}</div>{{ end }}
+          {{ with .Params.institution }}<div class="team-card-inst">{{ . }}</div>{{ end }}
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</div>
+{{ end }}
