@@ -2,6 +2,7 @@ baseURL: "https://trenconnectsus.github.io/tren/"
 title: "TREN — Tennessee Research & Education Network"
 defaultContentLanguage: "en"
 paginate: 10
+buildFuture: true
 
 params:
   description: "Building the statewide 100G research backbone for Tennessee's institutions of higher education."
