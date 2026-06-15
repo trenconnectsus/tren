@@ -3,6 +3,7 @@ title: "Second TREN Workshop"
 date: 2025-06-19
 location: "Middle Tennessee State University — Murfreesboro, TN"
 tag: "workshop"
+image: "workshop2-hero.jpg"
 summary: "The second workshop continued planning for the statewide cyberinfrastructure strategy with expanded participation from partner institutions."
 ---
 
