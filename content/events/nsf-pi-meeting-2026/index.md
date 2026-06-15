@@ -3,6 +3,7 @@ title: "2026 NSF CC* PI Meeting"
 date: 2026-04-21
 location: "Washington, D.C."
 tag: "conference"
+image: "2026-nsf-pi-meeting.JPG"
 summary: "TREN presents statewide planning progress at the annual NSF CC* Principal Investigators meeting."
 ---
 
