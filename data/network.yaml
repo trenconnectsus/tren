@@ -52,10 +52,6 @@ links:
     status: planned
 
   - from: nashville
-    to: cookeville
-    status: planned
-
-  - from: nashville
     to: crossville
     status: planned
     
