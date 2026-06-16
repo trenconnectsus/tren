@@ -60,6 +60,10 @@ links:
     status: active
     
   - from: cookeville
+    to: crossville
+    status: planned
+
+  - from: cookeville
     to: knoxville
     status: planned
 
@@ -152,3 +156,40 @@ affiliates:
     lat: 35.048200
     lng: -85.308900
     status: active
+
+
+styles:
+  backbone:
+    active:
+      color: "#1B5FAA"
+      width: 3.5
+      opacity: 1.0
+    planned:
+      color: "#1B5FAA"
+      width: 2.5
+      opacity: 0.55
+      dash: "8,6"
+    degraded:
+      color: "#F59E0B"
+      width: 3.5
+      opacity: 1.0
+    down:
+      color: "#DC2626"
+      width: 3.0
+      opacity: 1.0
+      dash: "6,4"
+  affiliates:
+    active:
+      color: "#27803C"
+      width: 1.8
+      opacity: 0.75
+    planned:
+      color: "#27803C"
+      width: 1.5
+      opacity: 0.40
+      dash: "5,4"
+  hubs:
+    active:   "#F5C518"
+    planned:  "#F5C518"
+    degraded: "#F59E0B"
+    down:     "#DC2626"      
