@@ -63,6 +63,10 @@ links:
     to: knoxville
     status: planned
 
+  - from: knoxville
+    to: chattanooga
+    status: planned
+
   - from: nashville
     to: chattanooga
     status: planned
