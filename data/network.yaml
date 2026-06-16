@@ -28,6 +28,12 @@ hubs:
     lng: -85.499706
     status: active
 
+  - id: crossville
+    name: Crossville
+    lat: 35.949078
+    lng: -85.0293714
+    status: active    
+
   - id: knoxville
     name: Knoxville
     lat: 35.960395
@@ -43,23 +49,27 @@ hubs:
 links:
   - from: memphis
     to: nashville
-    status: active
+    status: planned
 
   - from: nashville
     to: cookeville
-    status: active
+    status: planned
 
+  - from: nashville
+    to: crossville
+    status: active
+    
   - from: cookeville
     to: knoxville
-    status: active
+    status: planned
 
   - from: nashville
     to: chattanooga
-    status: active
+    status: planned
 
   - from: cookeville
     to: chattanooga
-    status: active
+    status: planned
 
   - from: memphis
     to: chattanooga
