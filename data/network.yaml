@@ -6,7 +6,7 @@
 #   degraded = issue detected, (yellow/orange) — triggers alert
 #   down     = offline (red)
 #
-# To mark a link live: change status: planned → active and push.
+# To mark a link live: change status: planned → planned and push.
 # ─────────────────────────────────────────────────────────────
 
 hubs:
@@ -20,31 +20,31 @@ hubs:
     name: Nashville
     lat: 36.162277
     lng: -86.774298
-    status: active
+    status: planned
 
   - id: cookeville
     name: Cookeville
     lat: 36.162389
     lng: -85.499706
-    status: active
+    status: planned
 
   - id: crossville
     name: Crossville
     lat: 35.949078
     lng: -85.0293714
-    status: active    
+    status: planned    
 
   - id: knoxville
     name: Knoxville
     lat: 35.960395
     lng: -83.921026
-    status: active
+    status: planned
 
   - id: chattanooga
     name: Chattanooga
     lat: 35.045722
     lng: -85.309488
-    status: active
+    status: planned
 
 links:
   - from: memphis
@@ -57,13 +57,13 @@ links:
 
   - from: nashville
     to: crossville
-    status: active
+    status: planned
     
   - from: cookeville
     to: crossville
     status: planned
 
-  - from: cookeville
+  - from: crossville
     to: knoxville
     status: planned
 
@@ -71,7 +71,7 @@ links:
     to: chattanooga
     status: planned
 
-  - from: cookeville
+  - from: crossville
     to: chattanooga
     status: planned
 
@@ -85,82 +85,82 @@ affiliates:
     hub: memphis
     lat: 35.118513
     lng: -89.937167
-    status: active
+    status: planned
 
   - id: uthsc
     name: UT Health Sciences Center
     hub: memphis
     lat: 35.153800
     lng: -90.033900
-    status: active
+    status: planned
 
   - id: st-jude
     name: St. Jude Children's Research Hospital
     hub: memphis
     lat: 35.150900
     lng: -90.041700
-    status: active
+    status: planned
 
   - id: vanderbilt
     name: Vanderbilt University
     hub: nashville
     lat: 36.144700
     lng: -86.802700
-    status: active
+    status: planned
 
   - id: tsu
     name: Tennessee State University
     hub: nashville
     lat: 36.167900
     lng: -86.802500
-    status: active
+    status: planned
 
   - id: mtsu
     name: Middle Tennessee State University
     hub: nashville
     lat: 35.846040
     lng: -86.392110
-    status: active
+    status: planned
 
   - id: ttu
     name: Tennessee Technological University
     hub: cookeville
     lat: 36.162389
     lng: -85.499706
-    status: active
+    status: planned
 
   - id: etsu
     name: East Tennessee State University
     hub: knoxville
     lat: 36.297800
     lng: -82.362100
-    status: active
+    status: planned
 
   - id: utk
     name: University of Tennessee, Knoxville
     hub: knoxville
     lat: 35.954400
     lng: -83.928300
-    status: active
+    status: planned
 
   - id: ornl
     name: Oak Ridge National Laboratory
     hub: knoxville
     lat: 36.010356
     lng: -84.269645
-    status: active
+    status: planned
 
   - id: utc
     name: UT Chattanooga
     hub: chattanooga
     lat: 35.048200
     lng: -85.308900
-    status: active
+    status: planned
 
 
 styles:
   backbone:
-    active:
+    planned:
       color: "#1B5FAA"
       width: 3.5
       opacity: 1.0
@@ -179,7 +179,7 @@ styles:
       opacity: 1.0
       dash: "6,4"
   affiliates:
-    active:
+    planned:
       color: "#27803C"
       width: 1.8
       opacity: 0.75
@@ -189,7 +189,7 @@ styles:
       opacity: 0.40
       dash: "5,4"
   hubs:
-    active:   "#F5C518"
+    planned:   "#F5C518"
     planned:  "#F5C518"
     degraded: "#F59E0B"
     down:     "#DC2626"      
