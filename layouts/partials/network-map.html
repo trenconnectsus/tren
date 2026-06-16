@@ -154,10 +154,10 @@
     var warn = h.status === "degraded" || h.status === "down";
     var html = warn
       ? '<div style="position:relative;width:28px;height:28px">'
-        + '<span class="tren-pulse" style="position:absolute;inset:-6px;border-radius:50%;background:' + st.hub + ';opacity:0.2"></span>'
-        + starSVG(st.hub, st.hs, 1)
+        + '<span class="tren-pulse" style="position:absolute;inset:-6px;border-radius:50%;background:' + hc + ';opacity:0.2"></span>'
+        + starSVG(hc, hs, 1)
         + '</div>'
-      : starSVG(st.hub, st.hs, h.status === "planned" ? 0.6 : 1);
+      : starSVG(hc, hs, h.status === "planned" ? 0.6 : 1);
 
     L.marker([h.lat, h.lng], {
       icon: L.divIcon({
