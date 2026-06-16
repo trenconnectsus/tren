@@ -3,6 +3,7 @@ title: "Bi-Weekly Community Call"
 date: 2026-06-23
 location: "Virtual — Zoom"
 tag: "recurring"
+image: "biweekly-logo.png"
 summary: "Open bi-weekly call to discuss TREN progress and networking efforts in Tennessee. All interested parties welcome."
 ---
 
