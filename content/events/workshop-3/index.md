@@ -3,6 +3,7 @@ title: "Third TREN Workshop"
 date: 2025-10-16
 location: "Tennessee State University — Nashville, TN"
 tag: "workshop"
+image: "third-workshop-hero.png"
 summary: "The third workshop focused on the 100G backbone feasibility study and engaged six partner institutions in statewide planning."
 ---
 
