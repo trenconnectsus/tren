@@ -60,10 +60,15 @@
 {{ $todayStr := now.Format "2006-01-02" }}
 {{ $upcoming := slice }}
 {{ range where .Site.RegularPages "Section" "events" }}
-  {{ if .Params.recurrence_days }}
-    {{ $upcoming = $upcoming | append (partial "recurring-occurrences.html" .) }}
-  {{ else if ge (.Date.Format "2006-01-02") $todayStr }}
-    {{ $upcoming = $upcoming | append (slice (dict "page" . "date" .Date "cancelled" false)) }}
+  {{ $p := . }}
+  {{ if $p.Params.recurrence_days }}
+    {{ $occs := first 3 (partial "recurring-occurrences.html" $p) }}
+    {{ with $occs }}
+      {{ $first := index . 0 }}
+      {{ $upcoming = $upcoming | append (dict "page" $p "date" $first.date "cancelled" $first.cancelled "next" (after 1 .)) }}
+    {{ end }}
+  {{ else if ge ($p.Date.Format "2006-01-02") $todayStr }}
+    {{ $upcoming = $upcoming | append (dict "page" $p "date" $p.Date "cancelled" false "next" slice) }}
   {{ end }}
 {{ end }}
 {{ $upcoming = sort $upcoming "date" "asc" }}
@@ -94,6 +99,14 @@
           <div class="event-title">{{ $p.Title }}{{ if .cancelled }} <span class="tag tag-cancelled">Cancelled</span>{{ end }}</div>
           <div class="event-loc">{{ $p.Params.location }}</div>
         </div>
+        {{ with .next }}
+        <div class="event-row-next">
+          <div class="event-row-next-label">Also upcoming</div>
+          {{ range . }}
+          <div class="event-row-next-date">{{ .date.Format "Jan 2" }}{{ if .cancelled }} (Cancelled){{ end }}</div>
+          {{ end }}
+        </div>
+        {{ end }}
       </a>
       {{ end }}
     </div>

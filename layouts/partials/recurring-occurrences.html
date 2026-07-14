@@ -16,7 +16,7 @@
 {{ $todayStr := now.Format "2006-01-02" }}
 {{ $out := slice }}
 {{ range $i := seq 0 (sub $count 1) }}
-  {{ $occDate := $page.Date.AddDate 0 0 (mul $i $intervalDays) }}
+  {{ $occDate := $page.Date.AddDate 0 0 (int (mul $i $intervalDays)) }}
   {{ $occStr := $occDate.Format "2006-01-02" }}
   {{ if ge $occStr $todayStr }}
     {{ $isCancelled := in $cancelled $occStr }}
