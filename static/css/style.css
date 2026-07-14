@@ -68,7 +68,7 @@ body {
 /* ─── Hero ───────────────────────────────────────────────── */
 .hero {
   position: relative;
-  height: 520px;
+  min-height: 520px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -256,8 +256,14 @@ body {
   .nav-links a { padding: 10px 0; width: 100%; }
   .nav-links .nav-cta { margin-top: 8px; text-align: center; }
   .nav-social { margin-top: 8px; }
-  .hero { height: 420px; }
+  .hero { min-height: 420px; padding: 2rem 0; }
   .hero-h1 { font-size: 28px; }
+  .event-row { flex-wrap: wrap; }
+  .event-row-next {
+    margin-left: 0; text-align: left; padding-left: 0;
+    width: 100%; margin-top: 8px; padding-top: 8px;
+    border-top: 0.5px solid var(--border);
+  }
   .stats-bar { grid-template-columns: repeat(2, 1fr); }
   .news-grid { grid-template-columns: 1fr; }
   .list-grid { grid-template-columns: 1fr; }
