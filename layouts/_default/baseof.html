@@ -24,6 +24,9 @@
         {{ range .Site.Params.nav }}
           <a href="{{ .url | relURL }}"{{ if eq $.RelPermalink .url }} class="active"{{ end }}>{{ .name }}</a>
         {{ end }}
+        {{ range .Site.Params.social }}
+          <a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>
+        {{ end }}
         <a href="{{ "/contact/" | relURL }}" class="nav-cta">Contact</a>
       </div>
     </div>

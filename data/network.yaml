@@ -160,7 +160,7 @@ affiliates:
 
 styles:
   backbone:
-    planned:
+    active:
       color: "#D30000"
       width: 3.5
       opacity: 1.0
@@ -179,7 +179,7 @@ styles:
       opacity: 1.0
       dash: "6,4"
   affiliates:
-    planned:
+    active:
       color: "#27803C"
       width: 1.8
       opacity: 0.75
@@ -189,7 +189,7 @@ styles:
       opacity: 0.40
       dash: "5,4"
   hubs:
-    planned:   "#F5C518"
+    active:   "#F5C518"
     planned:  "#F5C518"
     degraded: "#F59E0B"
     down:     "#DC2626"      

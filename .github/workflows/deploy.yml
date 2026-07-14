@@ -37,6 +37,9 @@ jobs:
       - name: Build
         run: hugo --minify
 
+      - name: Add CNAME for custom domain
+        run: echo "trenconnects.us" > public/CNAME
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

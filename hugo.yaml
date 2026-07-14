@@ -1,4 +1,4 @@
-baseURL: "https://trenconnectsus.github.io/tren/"
+baseURL: "https://trenconnects.us/"
 title: "TREN — Tennessee Research & Education Network"
 defaultContentLanguage: "en"
 paginate: 10
@@ -20,6 +20,17 @@ params:
       url: "/team/"
     - name: "Contact"
       url: "/contact/"
+
+  # Social links — placeholders, replace "#" with real profile URLs
+  social:
+    - name: "LinkedIn"
+      url: "#"
+    - name: "Facebook"
+      url: "#"
+    - name: "X"
+      url: "#"
+    - name: "YouTube"
+      url: "#"
 
   institutions:
     - name: "Tennessee State University"

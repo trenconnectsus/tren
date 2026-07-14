@@ -1,5 +1,6 @@
 ---
 name: "Susmit Shannigrahi"
+pi: true
 title: "Principal Investigator"
 institution: "Tennessee Technological University"
 email: ""
