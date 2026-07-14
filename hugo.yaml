@@ -24,12 +24,16 @@ params:
   # Social links — placeholders, replace "#" with real profile URLs
   social:
     - name: "LinkedIn"
+      icon: "linkedin"
       url: "#"
     - name: "Facebook"
+      icon: "facebook"
       url: "#"
     - name: "X"
+      icon: "x"
       url: "#"
     - name: "YouTube"
+      icon: "youtube"
       url: "#"
 
   institutions:

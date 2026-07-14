@@ -22,12 +22,16 @@
       </a>
       <div class="nav-links">
         {{ range .Site.Params.nav }}
+          {{ if ne .name "Contact" }}
           <a href="{{ .url | relURL }}"{{ if eq $.RelPermalink .url }} class="active"{{ end }}>{{ .name }}</a>
-        {{ end }}
-        {{ range .Site.Params.social }}
-          <a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>
+          {{ end }}
         {{ end }}
         <a href="{{ "/contact/" | relURL }}" class="nav-cta">Contact</a>
+        <div class="nav-social">
+          {{ range .Site.Params.social }}
+            <a href="{{ .url }}" class="nav-social-link" target="_blank" rel="noopener" aria-label="{{ .name }}">{{ partial "social-icon.html" .icon }}</a>
+          {{ end }}
+        </div>
       </div>
     </div>
   </nav>
