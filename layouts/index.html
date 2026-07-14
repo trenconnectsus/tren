@@ -57,6 +57,17 @@
 </section>
 
 <!-- ── Events ─────────────────────────────────────────────────────────────── -->
+{{ $todayStr := now.Format "2006-01-02" }}
+{{ $upcoming := slice }}
+{{ range where .Site.RegularPages "Section" "events" }}
+  {{ if .Params.recurrence_days }}
+    {{ $upcoming = $upcoming | append (partial "recurring-occurrences.html" .) }}
+  {{ else if ge (.Date.Format "2006-01-02") $todayStr }}
+    {{ $upcoming = $upcoming | append (slice (dict "page" . "date" .Date "cancelled" false)) }}
+  {{ end }}
+{{ end }}
+{{ $upcoming = sort $upcoming "date" "asc" }}
+{{ if $upcoming }}
 <section class="home-section home-section--alt">
   <div class="home-section-inner">
     <div class="section-header">
@@ -67,26 +78,28 @@
       <a href="{{ "/events/" | relURL }}" class="see-all">See all →</a>
     </div>
     <div class="events-list">
-      {{ range first 4 (where .Site.RegularPages "Section" "events").ByDate.Reverse }}
-      <a href="{{ .RelPermalink }}" class="event-row">
-        {{ if .Params.image }}
-        <img src="{{ .RelPermalink }}{{ .Params.image }}" alt="{{ .Title }}" class="event-row-thumb">
+      {{ range first 4 $upcoming }}
+      {{ $p := .page }}
+      <a href="{{ $p.RelPermalink }}" class="event-row">
+        {{ if $p.Params.image }}
+        <img src="{{ $p.RelPermalink }}{{ $p.Params.image }}" alt="{{ $p.Title }}" class="event-row-thumb">
         {{ else }}
         <div class="event-row-thumb event-row-thumb--placeholder"></div>
         {{ end }}
         <div class="event-date-block">
-          <div class="event-month">{{ .Date.Format "Jan" }}</div>
-          <div class="event-day">{{ .Date.Format "2" }}</div>
+          <div class="event-month">{{ .date.Format "Jan" }}</div>
+          <div class="event-day">{{ .date.Format "2" }}</div>
         </div>
         <div class="event-info">
-          <div class="event-title">{{ .Title }}</div>
-          <div class="event-loc">{{ .Params.location }}</div>
+          <div class="event-title">{{ $p.Title }}{{ if .cancelled }} <span class="tag tag-cancelled">Cancelled</span>{{ end }}</div>
+          <div class="event-loc">{{ $p.Params.location }}</div>
         </div>
       </a>
       {{ end }}
     </div>
   </div>
 </section>
+{{ end }}
 
 <!-- ── Partners ───────────────────────────────────────────────────────────── -->
 <section class="partners-section">

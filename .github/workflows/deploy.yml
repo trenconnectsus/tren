@@ -5,6 +5,10 @@ on:
     branches:
       - master
   workflow_dispatch:
+  schedule:
+    # Nightly rebuild so date-driven content (e.g. the recurring biweekly
+    # call's "next occurrence") advances even when nobody pushes a commit.
+    - cron: "0 6 * * *"
 
 permissions:
   contents: read

@@ -1,6 +1,12 @@
 ---
 title: "Bi-Weekly Community Call"
-date: 2026-06-23
+date: 2026-06-23           # anchor date — the first occurrence; later ones are computed automatically
+recurrence_days: 14        # repeat every N days
+recurrence_count: 10       # how many occurrences to generate forward from the anchor date (~4-5 months)
+upcoming_count: 6          # how many future occurrences to actually display
+# To cancel an occurrence, uncomment/add a line below like: - "2026-08-04"
+# It stays listed on the site, marked "Cancelled", instead of disappearing.
+cancelled_dates: []
 location: "Virtual — Zoom"
 tag: "recurring"
 image: "biweekly-logo.png"

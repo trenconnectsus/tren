@@ -1,0 +1,26 @@
+{{/*
+  Expands a recurring event page into its upcoming occurrences.
+  Reads .Date as the anchor/first occurrence, plus params:
+    recurrence_days  (int)            — repeat every N days
+    recurrence_count (int, default 26) — how many occurrences to generate forward from the anchor
+    upcoming_count   (int, default 6)  — how many future occurrences to keep
+    cancelled_dates  (list of "YYYY-MM-DD" strings)
+  Returns a slice of dicts: { page date cancelled }, soonest first, limited to upcoming_count,
+  filtered to occurrences on/after today.
+*/}}
+{{ $page := . }}
+{{ $intervalDays := int ($page.Params.recurrence_days | default 14) }}
+{{ $count := int ($page.Params.recurrence_count | default 26) }}
+{{ $limit := int ($page.Params.upcoming_count | default 6) }}
+{{ $cancelled := $page.Params.cancelled_dates | default slice }}
+{{ $todayStr := now.Format "2006-01-02" }}
+{{ $out := slice }}
+{{ range $i := seq 0 (sub $count 1) }}
+  {{ $occDate := $page.Date.AddDate 0 0 (mul $i $intervalDays) }}
+  {{ $occStr := $occDate.Format "2006-01-02" }}
+  {{ if ge $occStr $todayStr }}
+    {{ $isCancelled := in $cancelled $occStr }}
+    {{ $out = $out | append (dict "page" $page "date" $occDate "cancelled" $isCancelled) }}
+  {{ end }}
+{{ end }}
+{{ return first $limit $out }}

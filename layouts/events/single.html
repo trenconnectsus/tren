@@ -1,4 +1,13 @@
 {{ define "main" }}
+{{ $dateLabel := .Date.Format "January 2, 2006" }}
+{{ if .Params.recurrence_days }}
+  {{ $next := partial "recurring-occurrences.html" . }}
+  {{ with $next }}
+    {{ $n := index . 0 }}
+    {{ $dateLabel = printf "Next call: %s" ($n.date.Format "January 2, 2006") }}
+    {{ if $n.cancelled }}{{ $dateLabel = printf "%s (Cancelled)" $dateLabel }}{{ end }}
+  {{ end }}
+{{ end }}
 <article>
   {{ if .Params.image }}
   <div class="event-banner">
@@ -7,7 +16,7 @@
       <div class="event-banner-content">
         {{ if .Params.tag }}<span class="tag tag-{{ .Params.tag }}">{{ .Params.tag | humanize }}</span>{{ end }}
         <h1 class="event-banner-title">{{ .Title }}</h1>
-        <p class="event-banner-meta">{{ .Date.Format "January 2, 2006" }}{{ with .Params.location }} · {{ . }}{{ end }}</p>
+        <p class="event-banner-meta">{{ $dateLabel }}{{ with .Params.location }} · {{ . }}{{ end }}</p>
       </div>
     </div>
   </div>
@@ -17,7 +26,7 @@
       <header class="page-header">
         {{ if .Params.tag }}<span class="tag tag-{{ .Params.tag }}" style="margin-bottom:0.75rem;display:inline-block">{{ .Params.tag | humanize }}</span>{{ end }}
         <h1>{{ .Title }}</h1>
-        <p class="page-date">{{ .Date.Format "January 2, 2006" }}{{ with .Params.location }} · {{ . }}{{ end }}</p>
+        <p class="page-date">{{ $dateLabel }}{{ with .Params.location }} · {{ . }}{{ end }}</p>
       </header>
     </div>
   </div>

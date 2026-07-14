@@ -5,18 +5,33 @@
       <div class="eyebrow">Calendar</div>
       <h1>{{ .Title }}</h1>
     </header>
+    {{ $occurrences := slice }}
+    {{ range .Pages }}
+      {{ if .Params.recurrence_days }}
+        {{ $occurrences = $occurrences | append (partial "recurring-occurrences.html" .) }}
+      {{ else }}
+        {{ $occurrences = $occurrences | append (slice (dict "page" . "date" .Date "cancelled" false)) }}
+      {{ end }}
+    {{ end }}
+    {{ $occurrences = sort $occurrences "date" "desc" }}
+
     <div class="news-grid">
-      {{ range .Pages.ByDate.Reverse }}
-      <a href="{{ .RelPermalink }}" class="news-card">
-        {{ if .Params.image }}
-        <img src="{{ .RelPermalink }}{{ .Params.image }}" alt="{{ .Params.image_alt | default .Title }}" class="news-card-img">
+      {{ range $occurrences }}
+      {{ $p := .page }}
+      <a href="{{ $p.RelPermalink }}" class="news-card">
+        {{ if $p.Params.image }}
+        <img src="{{ $p.RelPermalink }}{{ $p.Params.image }}" alt="{{ $p.Params.image_alt | default $p.Title }}" class="news-card-img">
         {{ else }}
-        <img src="https://picsum.photos/seed/{{ .File.BaseFileName }}/800/500" alt="{{ .Title }}" class="news-card-img">
+        <img src="https://picsum.photos/seed/{{ $p.File.BaseFileName }}/800/500" alt="{{ $p.Title }}" class="news-card-img">
         {{ end }}
         <div class="news-card-body">
-          {{ if .Params.tag }}<span class="tag tag-{{ .Params.tag }}">{{ .Params.tag | humanize }}</span>{{ end }}
-          <h3>{{ .Title }}</h3>
-          <p class="news-date">{{ .Date.Format "January 2, 2006" }}{{ with .Params.location }} · {{ . }}{{ end }}</p>
+          {{ if .cancelled }}
+          <span class="tag tag-cancelled">Cancelled</span>
+          {{ else if $p.Params.tag }}
+          <span class="tag tag-{{ $p.Params.tag }}">{{ $p.Params.tag | humanize }}</span>
+          {{ end }}
+          <h3>{{ $p.Title }}</h3>
+          <p class="news-date">{{ .date.Format "January 2, 2006" }}{{ with $p.Params.location }} · {{ . }}{{ end }}</p>
         </div>
       </a>
       {{ end }}
