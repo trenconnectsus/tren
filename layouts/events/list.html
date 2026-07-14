@@ -5,19 +5,18 @@
       <div class="eyebrow">Calendar</div>
       <h1>{{ .Title }}</h1>
     </header>
-    {{ $occurrences := slice }}
-    {{ range .Pages }}
-      {{ if .Params.recurrence_days }}
-        {{ $occurrences = $occurrences | append (partial "recurring-occurrences.html" .) }}
-      {{ else }}
-        {{ $occurrences = $occurrences | append (slice (dict "page" . "date" .Date "cancelled" false)) }}
-      {{ end }}
-    {{ end }}
-    {{ $occurrences = sort $occurrences "date" "desc" }}
 
     <div class="news-grid">
-      {{ range $occurrences }}
-      {{ $p := .page }}
+      {{ range .Pages.ByDate.Reverse }}
+      {{ $p := . }}
+      {{ $dateLabel := $p.Date.Format "January 2, 2006" }}
+      {{ if $p.Params.recurrence_days }}
+        {{ with partial "recurring-occurrences.html" $p }}
+          {{ $next := index . 0 }}
+          {{ $dateLabel = printf "Next: %s" ($next.date.Format "January 2, 2006") }}
+          {{ if $next.cancelled }}{{ $dateLabel = printf "%s (Cancelled)" $dateLabel }}{{ end }}
+        {{ end }}
+      {{ end }}
       <a href="{{ $p.RelPermalink }}" class="news-card">
         {{ if $p.Params.image }}
         <img src="{{ $p.RelPermalink }}{{ $p.Params.image }}" alt="{{ $p.Params.image_alt | default $p.Title }}" class="news-card-img">
@@ -25,13 +24,9 @@
         <img src="https://picsum.photos/seed/{{ $p.File.BaseFileName }}/800/500" alt="{{ $p.Title }}" class="news-card-img">
         {{ end }}
         <div class="news-card-body">
-          {{ if .cancelled }}
-          <span class="tag tag-cancelled">Cancelled</span>
-          {{ else if $p.Params.tag }}
-          <span class="tag tag-{{ $p.Params.tag }}">{{ $p.Params.tag | humanize }}</span>
-          {{ end }}
+          {{ if $p.Params.tag }}<span class="tag tag-{{ $p.Params.tag }}">{{ $p.Params.tag | humanize }}</span>{{ end }}
           <h3>{{ $p.Title }}</h3>
-          <p class="news-date">{{ .date.Format "January 2, 2006" }}{{ with $p.Params.location }} · {{ . }}{{ end }}</p>
+          <p class="news-date">{{ $dateLabel }}{{ with $p.Params.location }} · {{ . }}{{ end }}</p>
         </div>
       </a>
       {{ end }}
