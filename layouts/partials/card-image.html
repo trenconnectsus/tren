@@ -1,0 +1,25 @@
+{{- /*
+  Resolves the image to show for a card/listing entry:
+    1. the page's own `image` param, if set
+    2. else, if `related_event` names an events/<slug> page, that event's `image`
+    3. else a deterministic placeholder photo
+  Returns a dict: {src, alt}
+*/ -}}
+{{- $p := . -}}
+{{- $src := "" -}}
+{{- $alt := $p.Title -}}
+{{- if $p.Params.image -}}
+  {{- $src = printf "%s%s" $p.RelPermalink $p.Params.image -}}
+  {{- with $p.Params.image_alt -}}{{- $alt = . -}}{{- end -}}
+{{- else if $p.Params.related_event -}}
+  {{- with $p.Site.GetPage (printf "events/%s" $p.Params.related_event) -}}
+    {{- if .Params.image -}}
+      {{- $src = printf "%s%s" .RelPermalink .Params.image -}}
+      {{- $alt = .Params.image_alt | default $p.Title -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $src -}}
+  {{- $src = printf "https://picsum.photos/seed/%s/800/500" $p.File.BaseFileName -}}
+{{- end -}}
+{{- return (dict "src" $src "alt" $alt) -}}

@@ -20,7 +20,7 @@ partners:
 
   - name: "Southern Crossroads (SOX)"
     abbr: "SOX"
-    logo: "sox-logo.svg"
+    logo: "sox-logo.png"
     url: "https://www.sox.net"
 
   - name: "University of Tennessee, Knoxville"
@@ -50,7 +50,7 @@ partners:
 
   - name: "UT Chattanooga"
     abbr: "UTC"
-    logo: "utc-logo.svg"
+    logo: "utc-logo.png"
     url: "https://www.utc.edu"
 
   - name: "University of Memphis"

@@ -6,7 +6,7 @@ institution: "Tennessee Technological University"
 email: ""
 linkedin: ""
 website: ""
-image: "headshot.jpg"
+image: ""
 expertise:
   - "Network Infrastructure"
   - "Cyberinfrastructure"

@@ -2,6 +2,7 @@
 title: "Third TREN Workshop recap — Nashville, October 2025"
 date: 2025-10-24
 tag: "recap"
+related_event: "workshop-3"
 summary: "The third TREN workshop brought 60 attendees from six partner institutions to Tennessee State University to review the 100G backbone feasibility study."
 ---
 

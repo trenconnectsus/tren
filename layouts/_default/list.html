@@ -9,9 +9,8 @@
     <div class="list-grid">
       {{ range .Pages.ByDate.Reverse }}
       <a href="{{ .RelPermalink }}" class="list-card">
-        {{ if .Params.image }}
-        <img src="{{ .Params.image | relURL }}" alt="{{ .Params.image_alt | default .Title }}" class="list-card-img">
-        {{ end }}
+        {{ $img := partial "card-image.html" . }}
+        <img src="{{ $img.src }}" alt="{{ $img.alt }}" class="list-card-img">
         <div class="list-card-body">
           {{ if .Params.tag }}<span class="tag tag-{{ .Params.tag }}">{{ .Params.tag | humanize }}</span>{{ end }}
           <h2>{{ .Title }}</h2>

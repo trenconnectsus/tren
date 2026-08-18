@@ -40,11 +40,8 @@
     <div class="news-grid">
       {{ range first 3 (where .Site.RegularPages "Section" "news").ByDate.Reverse }}
       <a href="{{ .RelPermalink }}" class="news-card">
-        {{ if .Params.image }}
-        <img src="{{ .RelPermalink }}{{ .Params.image }}" alt="{{ .Params.image_alt | default .Title }}" class="news-card-img">
-        {{ else }}
-        <img src="https://picsum.photos/seed/{{ .File.BaseFileName }}/800/500" alt="{{ .Title }}" class="news-card-img">
-        {{ end }}
+        {{ $img := partial "card-image.html" . }}
+        <img src="{{ $img.src }}" alt="{{ $img.alt }}" class="news-card-img">
         <div class="news-card-body">
           {{ if .Params.tag }}<span class="tag tag-{{ .Params.tag }}">{{ .Params.tag | humanize }}</span>{{ end }}
           <h3>{{ .Title }}</h3>

@@ -2,6 +2,7 @@
 title: "First TREN Workshop recap — Cookeville, March 2025"
 date: 2025-03-28
 tag: "recap"
+related_event: "workshop-1"
 summary: "The inaugural TREN workshop brought stakeholders from across Tennessee together at Tennessee Tech to begin shaping the statewide cyberinfrastructure strategy."
 ---
 

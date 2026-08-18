@@ -2,6 +2,7 @@
 title: "Second TREN Workshop recap — Murfreesboro, June 2025"
 date: 2025-06-27
 tag: "recap"
+related_event: "workshop-2"
 summary: "The second TREN workshop at MTSU deepened the cyberinfrastructure planning process and expanded partner participation across Tennessee."
 ---
 
