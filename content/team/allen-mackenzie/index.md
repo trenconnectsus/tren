@@ -6,7 +6,7 @@ institution: ""
 email: ""
 linkedin: ""
 website: ""
-image: ""
+image: "headshot.webp"
 ---
 
 Replace this with Allen's bio.
