@@ -3,6 +3,7 @@ title: "Fourth TREN Workshop"
 date: 2026-10-08
 location: "Nashville, TN"
 tag: "workshop"
+image: "workshop-4-images.png"
 registration: ""
 summary: "Tennessee's colleges and universities are developing a unified statewide cyberinfrastructure strategic plan. Save the date and register — CIOs and VPRs/VCRs from each institution are invited."
 ---
