@@ -1,18 +1,29 @@
 ---
 title: "Fourth TREN Workshop"
-date: 2026-06-18
+date: 2026-10-08
 location: "Nashville, TN"
 tag: "workshop"
 registration: ""
-summary: "The fourth TREN workshop will focus on 100G backbone design and statewide partner expansion."
+summary: "Tennessee's colleges and universities are developing a unified statewide cyberinfrastructure strategic plan. Save the date and register — CIOs and VPRs/VCRs from each institution are invited."
 ---
 
 ## Overview
 
-The fourth TREN workshop will be held June 18, 2026 in Nashville, TN. Building on the feasibility study completed in 2025, this workshop will advance backbone design decisions and expand the partner network across Tennessee.
+**Tennessee Cyberinfrastructure Planning Workshop** (TREN Workshop 4) —
+Thursday, October 8, 2026, all day, in Nashville, TN.
 
-Registration details will be announced via the [TREN mailing list](https://lists.tntech.edu/postorius/lists/tren.lists.tntech.edu/).
+Tennessee's colleges and universities are coming together to develop a unified strategic plan for cyberinfrastructure — one that will guide coordinated requests to the state, strengthen collaboration among institutions, and position Tennessee higher education for real economic impact through stronger competitiveness for external funding. The workshop will be professionally facilitated by Dr. Joel Cutcher-Gershenfeld.
 
-## NSF Acknowledgment
+## Who should attend
 
-This workshop is supported by the National Science Foundation under Award #2430341.
+The CIO and VPR/VCR (or their designee) from each Tennessee institution of higher education. Space is limited to two participants per institution — please coordinate internally.
+
+Full agenda and hotel recommendations will follow. For now, please hold the date and register — and if you're not the right person to attend, we'd appreciate you forwarding this directly to your institution's CIO and VPR/VCR.
+
+## Sponsors
+
+This workshop is sponsored by Tennessee Technological University, the National Institute for Computational Sciences (NICS, UTK), and the Advanced Computing Center for Research and Education (ACCRE, Vanderbilt University), and supported by the National Science Foundation under Award No. 2430341.
+
+## Questions
+
+[Allen MacKenzie](mailto:amackenzie@tntech.edu) or [Susmit Shannigrahi](mailto:sshannigrahi@tntech.edu)
