@@ -14,7 +14,6 @@
 
     {{ $pis := where .Pages "Params.pi" true }}
     {{ if $pis }}
-    <div class="eyebrow" style="margin-bottom:1rem">Principal Investigators</div>
     <div class="team-grid">
       {{ range sort $pis "Params.name" }}
       <a href="{{ .RelPermalink }}" class="team-card">
